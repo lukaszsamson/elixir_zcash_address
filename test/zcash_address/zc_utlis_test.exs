@@ -26,18 +26,18 @@ defmodule ZcashAddress.ZCUtilsTest do
 
   test "write_compact" do
     for {n, encoded} <- @compact_vectors,
-      allow_u64 <- [true, false] do
-      assert encoded == write_compact_size(n, allow_u64) |> Base.encode16
+        allow_u64 <- [true, false] do
+      assert encoded == write_compact_size(n, allow_u64) |> Base.encode16()
     end
 
     for {n, encoded} <- @compact_vectors_long do
-      assert encoded == write_compact_size(n, true) |> Base.encode16
+      assert encoded == write_compact_size(n, true) |> Base.encode16()
     end
   end
 
   test "parse_compact" do
     for {n, encoded} <- @compact_vectors,
-      allow_u64 <- [true, false] do
+        allow_u64 <- [true, false] do
       assert {n, <<>>} == parse_compact_size(encoded |> Base.decode16!(), allow_u64)
     end
 

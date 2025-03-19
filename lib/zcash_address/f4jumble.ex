@@ -1,6 +1,6 @@
 defmodule ZcashAddress.F4Jumble do
   import ZcashAddress.Utils
-  use Bitwise
+  import Bitwise
   alias Blake2.Blake2b
   # Maximum output length of BLAKE2b
   @l_H 64
@@ -10,7 +10,7 @@ defmodule ZcashAddress.F4Jumble do
   end
 
   @min_l_M 48
-  @max_l_M 4194368
+  @max_l_M 4_194_368
 
   unless @max_l_M == 65537 * @l_H do
     raise ArgumentError
@@ -18,8 +18,9 @@ defmodule ZcashAddress.F4Jumble do
 
   def xor(a, b, acc \\ <<>>)
   def xor(<<>>, <<>>, acc), do: acc
-  def xor(<< a, rest_a::binary >>, << b, rest_b::binary >>, acc) do
-    acc = acc <> << bxor(a, b) >>
+
+  def xor(<<a, rest_a::binary>>, <<b, rest_b::binary>>, acc) do
+    acc = acc <> <<bxor(a, b)>>
     xor(rest_a, rest_b, acc)
   end
 
@@ -30,15 +31,16 @@ defmodule ZcashAddress.F4Jumble do
     end
 
     g = fn i, u ->
-        inner = fn j ->
-          person = "UA_F4Jumble_G" <> <<i>> <> i2leosp(16, j)
-          Blake2b.hash(u, <<>>, @l_H, <<>>, person)
-        end
+      inner = fn j ->
+        person = "UA_F4Jumble_G" <> <<i>> <> i2leosp(16, j)
+        Blake2b.hash(u, <<>>, @l_H, <<>>, person)
+      end
 
-        res = for j <- 0..ceil(l_R / @l_H), into: <<>>, do: inner.(j)
+      res = for j <- 0..ceil(l_R / @l_H), into: <<>>, do: inner.(j)
 
-        :binary.part(res, 0, l_R)
+      :binary.part(res, 0, l_R)
     end
+
     # TODO cache in persistent term?
     {h, g}
   end
