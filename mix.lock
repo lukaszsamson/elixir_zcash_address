@@ -1,4 +1,4 @@
 %{
-  "blake2_elixir": {:git, "https://github.com/josevalim/blake2_elixir.git", "20b3635600d21afeb45665cdca761bfde8961f88", [branch: "patch-1"]},
+  "blake2_elixir": {:hex, :blake2_elixir, "0.8.1", "93913497a79faf97c46e9140dd33d85d8cad0e93ae0039f2503c50204dd94c25", [:make, :mix], [{:elixir_make, "~> 0.5", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "3f37b4fb1d1ae9f118f8d1e0358a0f80b422d52af99a23ddcaba5b0b48b33e5d"},
   "elixir_make": {:hex, :elixir_make, "0.9.0", "6484b3cd8c0cee58f09f05ecaf1a140a8c97670671a6a0e7ab4dc326c3109726", [:mix], [], "hexpm", "db23d4fd8b757462ad02f8aa73431a426fe6671c80b200d9710caf3d1dd0ffdb"},
 }
