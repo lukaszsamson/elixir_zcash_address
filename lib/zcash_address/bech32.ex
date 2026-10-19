@@ -128,7 +128,7 @@ defmodule ZcashAddress.Bech32 do
          pos = len - pos - 1,
          {_, false} <- {:empty_hrp, pos < 1},
          {_, false, _} <- {:short_cs, pos + 7 > len, len},
-         <<hrp::binary-size(pos), @separator, data::binary>> = bech,
+         {hrp, <<@separator, data::binary>>} = :erlang.split_binary(bech, pos),
          data_charlist =
            (for c <- :binary.bin_to_list(data) do
               Enum.find_index(@charset, fn d -> c == d end)
@@ -149,10 +149,8 @@ defmodule ZcashAddress.Bech32 do
       {:oor_sep, _} -> {:error, "No separator character"}
       {:empty_hrp, _} -> {:error, "Empty HRP"}
       {:short_cs, _, l} -> {:error, "Too short checksum (#{l})"}
-      {:too_long, _, l} -> {:error, "Overall max length exceeded (#{l})"}
       {:oor_data, c} -> {:error, "Invalid data character #{inspect(<<c>>)} (#{c})}"}
       {:cs, _} -> {:error, "Invalid checksum"}
-      _ -> {:error, "Unknown error"}
     end
   end
 
