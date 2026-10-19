@@ -1,4 +1,5 @@
 %{
-  "blake2_elixir": {:hex, :blake2_elixir, "0.8.1", "93913497a79faf97c46e9140dd33d85d8cad0e93ae0039f2503c50204dd94c25", [:make, :mix], [{:elixir_make, "~> 0.5", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "3f37b4fb1d1ae9f118f8d1e0358a0f80b422d52af99a23ddcaba5b0b48b33e5d"},
-  "elixir_make": {:hex, :elixir_make, "0.9.0", "6484b3cd8c0cee58f09f05ecaf1a140a8c97670671a6a0e7ab4dc326c3109726", [:mix], [], "hexpm", "db23d4fd8b757462ad02f8aa73431a426fe6671c80b200d9710caf3d1dd0ffdb"},
+  "blake2_elixir": {:hex, :blake2_elixir, "0.9.0", "d1b16a55e902ef71802eb8f988318a58cbba78c67e372a2c4391af7589e3ba26", [:make, :mix], [{:elixir_make, "~> 0.5", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "f33cb27e790511c0bdeedc4af2a81c160047b1a0ec4e3cdf159e00c104233b24"},
+  "elixir_make": {:hex, :elixir_make, "0.10.0", "16577e2583a79bb79237bbff349619ef5d80afffc07eac6e4faf0d00e2ddaf7d", [:mix], [], "hexpm", "dc1f09fb7fa68866b886abd5f0f3c83553b1a19a52359a899e92af1bb3b31982"},
+  "spec_lint": {:hex, :spec_lint, "0.1.1", "e40649140dc96a32a2d4a7b98e8fbd3035d138b87154a35716f2cca76955cdae", [:mix], [], "hexpm", "67d7cc8d2e2cb29595518ee042b470a71de619ca250440e526c7987e06adeada"},
 }

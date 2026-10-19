@@ -21,7 +21,8 @@ defmodule ZcashAddress.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:blake2_elixir, "~> 0.8"}
+      {:blake2_elixir, "~> 0.8"},
+      {:spec_lint, "~> 0.1", only: [:dev, :test], runtime: false}
     ]
   end
 end
